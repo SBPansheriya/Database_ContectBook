@@ -1,9 +1,12 @@
 package com.example.database_contectbook;
 
+import android.widget.ImageView;
+
 public class Contact_Modal {
 
     int id;
     String name,number;
+    String imagepath;
 
     public int getId() {
         return id;
@@ -29,11 +32,18 @@ public class Contact_Modal {
         this.number = number;
     }
 
-    public Contact_Modal(int id, String name, String number) {
+    public String getImgpath() {
+        return imagepath;
+    }
+
+    public void setImgpath(String imgpath) {
+        this.imagepath = imgpath;
+    }
+
+    public Contact_Modal(int id, String name, String number, String imagepath) {
         this.id = id;
         this.name = name;
         this.number = number;
+        this.imagepath = imagepath;
     }
-
-
 }

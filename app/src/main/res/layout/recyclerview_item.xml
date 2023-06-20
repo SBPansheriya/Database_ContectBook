@@ -2,17 +2,33 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2.4"
         android:layout_margin="5dp"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:background="#BAB4A5">
 
-    <TextView
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher_background"
+            android:id="@+id/main_image"/>
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="0.8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:background="#BAB4A5">
+        <TextView
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -20,7 +36,8 @@
         android:gravity="center|left"
         android:layout_marginLeft="15dp"
         android:textSize="35dp"/>
-    <TextView
+
+        <TextView
         android:id="@+id/number"
         android:layout_width="match_parent"
         android:layout_height="50dp"

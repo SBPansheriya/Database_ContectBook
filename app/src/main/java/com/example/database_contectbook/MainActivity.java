@@ -52,26 +52,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        recyclerView.setOnLongClickListener(new View.OnLongClickListener() {
-//            @Override
-//            public boolean onLongClick(View v) {
-//                PopupMenu popupMenu = new PopupMenu(MainActivity.this, recyclerView);
-//
-//                // Inflating popup menu from popup_menu.xml file
-//                popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
-//                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-//                    @Override
-//                    public boolean onMenuItemClick(MenuItem menuItem) {
-//                        // Toast message on menu item clicked
-//                        Toast.makeText(MainActivity.this, "You Clicked " + menuItem.getTitle(), Toast.LENGTH_SHORT).show();
-//                        return true;
-//                    }
-//                });
-//                // Showing the popup menu
-//                popupMenu.show();
-//                return true;
-//            }
-//        });
     }
 
     private void Displayeddata() {
@@ -82,10 +62,11 @@ public class MainActivity extends AppCompatActivity {
             int id = cursor.getInt(0);
             String name = cursor.getString(1);
             String number = cursor.getString(2);
-            Contact_Modal contactModal = new Contact_Modal(id,name,number);
+            String imagepath = cursor.getString(3);
+            Contact_Modal contactModal = new Contact_Modal(id,name,number,imagepath);
             contactlist.add(contactModal);
         }
-        adapter = new Recyclerview_Adapter(MainActivity.this,contactlist,data_base);
+        adapter = new Recyclerview_Adapter(MainActivity.this,contactlist);
         LinearLayoutManager manager = new LinearLayoutManager(getApplicationContext());
         manager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(manager);

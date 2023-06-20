@@ -24,9 +24,6 @@
         <activity
             android:name=".Add_Contact"
             android:exported="true"/>
-        <activity
-            android:name=".Update_Contact"
-            android:exported="true"/>
     </application>
 
 </manifest>

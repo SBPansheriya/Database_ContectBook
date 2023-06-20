@@ -11,13 +11,13 @@ import androidx.annotation.Nullable;
 public class Data_Base extends SQLiteOpenHelper {
 
     public Data_Base(@Nullable Context context) {
-        super(context,"ContactBook",null,1);
+        super(context,"Contact",null,1);
         Log.d("TTT","Data_Base: Database Created");
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String qurey = "create table Contact (ID integer primary key autoincrement,NAME text,NUMBER text)";
+        String qurey = "create table Contactbook (ID integer primary key autoincrement,NAME text,NUMBER text,IMAGEPATH text)";
         sqLiteDatabase.execSQL(qurey);
         Log.d("TTT","onCreate: Table Created");
     }
@@ -27,8 +27,8 @@ public class Data_Base extends SQLiteOpenHelper {
 
     }
 
-    public void addContact(String name, String number) {
-        String qurey = "insert into Contact (NAME,NUMBER) values ('"+name+"','"+number+"')";
+    public void addContact(String name, String number, String imagepath) {
+        String qurey = "insert into Contactbook (NAME,NUMBER,IMAGEPATH) values ('"+name+"','"+number+"','"+imagepath+"')";
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL(qurey);
         Log.d("TTT", "addContact: data"+name);
@@ -36,14 +36,14 @@ public class Data_Base extends SQLiteOpenHelper {
     }
 
     public Cursor Displayed(){
-        String all = "select * from Contact";
+        String all = "select * from Contactbook";
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery(all,null);
         return cursor;
     }
 
-    public void updateContact(int id, String name, String number){
-        String qurey = "update Contact set NAME='"+name+"',NUMBER='"+number+"'where ID="+id+"";
+    public void updateContact(int id, String name, String number, String imagepath){
+        String qurey = "update Contactbook set NAME='"+name+"',NUMBER='"+number+"',IMAGEPATH='"+imagepath+"'where ID="+id+"";
         SQLiteDatabase db = getWritableDatabase();
         Log.d("TTT", "addContact: update"+name);
         Log.d("TTT", "addContact: update"+number);
@@ -51,7 +51,7 @@ public class Data_Base extends SQLiteOpenHelper {
     }
 
     public void deleteContact(int id){
-        String qurey = "delete from Contact where ID="+id+"";
+        String qurey = "delete from Contactbook where ID="+id+"";
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL(qurey);
     }
